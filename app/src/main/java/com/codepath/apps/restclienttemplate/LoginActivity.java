@@ -64,4 +64,14 @@ public class LoginActivity extends OAuthLoginActionBarActivity<TwitterClient> {
 		getClient().connect();
 	}
 
+
+	public void onLogoutSuccess() {
+		Log.i("Logout", "Logout successful");
+		Intent i = new Intent(this, TimelineActivity.class);
+		startActivity(i);
+	}
+
 }
+
+
+

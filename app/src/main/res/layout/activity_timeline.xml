@@ -11,5 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp" />
+        android:layout_marginTop="50dp" />
+
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="300dp"
+        android:onClick="onLogoutButton"
+        android:text="Logout" />
 </RelativeLayout>
