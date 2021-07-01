@@ -19,6 +19,7 @@ public class Tweet {
     public String body;
     public String createdAt;
     public User user;
+    public String tweetImageUrl;
 
     // empty constructor needed by the parceler library
     public Tweet() {}
@@ -30,6 +31,13 @@ public class Tweet {
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
+        try {
+            tweet.tweetImageUrl = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
+            Log.i("tweetImage", tweet.tweetImageUrl);
+        } catch (Exception e) {
+            Log.i("tweetImage", "tweetImage failed");
+            e.printStackTrace();
+        }
         return tweet;
 
     }
@@ -64,15 +72,15 @@ public class Tweet {
             } else if (diff < 2 * MINUTE_MILLIS) {
                 return "a minute ago";
             } else if (diff < 50 * MINUTE_MILLIS) {
-                return diff / MINUTE_MILLIS + " m";
+                return diff / MINUTE_MILLIS + " minutes ago";
             } else if (diff < 90 * MINUTE_MILLIS) {
                 return "an hour ago";
             } else if (diff < 24 * HOUR_MILLIS) {
-                return diff / HOUR_MILLIS + " h";
+                return diff / HOUR_MILLIS + " hours ago";
             } else if (diff < 48 * HOUR_MILLIS) {
                 return "yesterday";
             } else {
-                return diff / DAY_MILLIS + " d";
+                return diff / DAY_MILLIS + " days ago";
             }
         } catch (ParseException e) {
             Log.i("Tweet", "getRelativeTimeAgo failed");

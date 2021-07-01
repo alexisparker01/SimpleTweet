@@ -22,8 +22,10 @@ public class ComposeActivity extends AppCompatActivity {
 
     public static final String TAG = "ComposeActivity";
     EditText etCompose;
+    EditText simpleEditText;
     Button btnTweet;
-    public static final int MAX_TWEET_LENGTH = 140;
+    String strValue;
+    public static final int MAX_TWEET_LENGTH = 280;
 
     TwitterClient client;
 
@@ -34,6 +36,8 @@ public class ComposeActivity extends AppCompatActivity {
         client = TwitterApp.getRestClient(this);
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
+        simpleEditText = (EditText) findViewById(R.id.etCompose);
+        strValue = simpleEditText.getText().toString();
 
         // Set click listener on button
             btnTweet.setOnClickListener(new View.OnClickListener() {

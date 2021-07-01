@@ -28,7 +28,7 @@
 
     <TextView
         android:id="@+id/tvBody"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvScreenName"
         android:layout_marginStart="5dp"
@@ -38,10 +38,20 @@
 
     <TextView
         android:id="@+id/tvTime"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tvBody"
-        android:layout_marginStart="5dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
-        tools:text="5m" />
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="0dp"
+        tools:text="5 minutes ago" />
+
+    <ImageView
+        android:id="@+id/ivTweetImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvTime"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitCenter"
+        android:visibility="visible"
+        tools:srcCompat="@tools:sample/avatars" />
 </RelativeLayout>
