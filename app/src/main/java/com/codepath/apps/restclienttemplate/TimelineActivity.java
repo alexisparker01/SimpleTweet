@@ -2,12 +2,15 @@ package com.codepath.apps.restclienttemplate;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -39,6 +42,7 @@ public class TimelineActivity extends AppCompatActivity {
     TweetsAdapter adapter;
     private SwipeRefreshLayout swipeContainer;
 
+
     public static final String TAG = "TimelineActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +68,22 @@ public class TimelineActivity extends AppCompatActivity {
                 android.R.color.holo_red_light);
 
 
+
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#ff1da1f2"));
+
+        // Set BackgroundDrawable
+        actionBar.setBackgroundDrawable(colorDrawable);
+
         client = TwitterApp.getRestClient(this);
+
 
         // Find the RecyclerView
 
@@ -172,6 +191,7 @@ public class TimelineActivity extends AppCompatActivity {
         client.clearAccessToken(); // forget who's logged in
         finish(); // navigate backwards to Login screen
     }
+
 
 
 }

@@ -24,12 +24,12 @@
             android:layout_centerVertical="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
-            android:hint="What's happening?"
             android:ems="10"
             android:gravity="start|top"
+            android:hint="What's happening?"
             android:inputType="textMultiLine"
             android:minLines="5"
-            android:textColorHighlight="#7cff88" />
+            android:textColorHighlight="#ff1da1f2" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -40,7 +40,9 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="-33dp"
         android:layout_marginEnd="5dp"
-        android:text="@string/tweet" />
+        android:backgroundTint="#1DA1F2"
+        android:text="@string/tweet"
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>

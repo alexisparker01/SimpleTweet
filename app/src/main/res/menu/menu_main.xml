@@ -3,8 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/twitterIcon"
+        android:icon="@mipmap/ic_launcher_twitter_round"
+        android:title="Twitter Icon"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/compose"
-        android:icon="@android:drawable/ic_menu_edit"
+        android:icon="@drawable/ic_vector_compose"
         android:title="Compose"
         app:showAsAction="always" />
 </menu>

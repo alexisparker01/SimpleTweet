@@ -21,9 +21,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="0dp"
-        android:layout_toEndOf="@+id/ivProfileImage"
+        android:layout_marginStart="4dp"
+        android:layout_toEndOf="@+id/tvScreenNameBold"
         tools:text="rpandey1234" />
 
     <TextView
@@ -38,20 +37,31 @@
 
     <TextView
         android:id="@+id/tvTime"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvBody"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="0dp"
+        android:layout_above="@+id/tvBody"
+        android:layout_alignParentRight="true"
+        android:gravity="right"
         tools:text="5 minutes ago" />
 
     <ImageView
         android:id="@+id/ivTweetImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tvTime"
-        android:layout_marginTop="5dp"
+        android:layout_below="@+id/tvBody"
+        android:layout_marginTop="8dp"
         android:scaleType="fitCenter"
         android:visibility="visible"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/tvScreenNameBold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tvBody"
+        android:layout_alignStart="@+id/tvBody"
+        android:layout_alignParentTop="true"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        tools:text="rpandey1234" />
 </RelativeLayout>

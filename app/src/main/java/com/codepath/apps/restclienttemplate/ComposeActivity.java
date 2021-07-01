@@ -1,8 +1,11 @@
 package com.codepath.apps.restclienttemplate;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -22,7 +25,6 @@ public class ComposeActivity extends AppCompatActivity {
 
     public static final String TAG = "ComposeActivity";
     EditText etCompose;
-    EditText simpleEditText;
     Button btnTweet;
     String strValue;
     public static final int MAX_TWEET_LENGTH = 280;
@@ -36,8 +38,20 @@ public class ComposeActivity extends AppCompatActivity {
         client = TwitterApp.getRestClient(this);
         etCompose = findViewById(R.id.etCompose);
         btnTweet = findViewById(R.id.btnTweet);
-        simpleEditText = (EditText) findViewById(R.id.etCompose);
-        strValue = simpleEditText.getText().toString();
+        strValue = etCompose.getText().toString();
+
+        // Define ActionBar object
+        ActionBar actionBar;
+        actionBar = getSupportActionBar();
+
+        // Define ColorDrawable object and parse color
+        // using parseColor method
+        // with color hash code as its parameter
+        ColorDrawable colorDrawable
+                = new ColorDrawable(Color.parseColor("#ff1da1f2"));
+
+        // Set BackgroundDrawable
+        actionBar.setBackgroundDrawable(colorDrawable);
 
         // Set click listener on button
             btnTweet.setOnClickListener(new View.OnClickListener() {
@@ -73,6 +87,7 @@ public class ComposeActivity extends AppCompatActivity {
                                 finish(); // closes the activity , pass data to parent
                             } catch (JSONException e) {
                                 e.printStackTrace();
+                                Log.i(TAG, "onFailure to publish tweet " + e);
                             }
 
                         }
@@ -87,4 +102,6 @@ public class ComposeActivity extends AppCompatActivity {
             });
 
     }
+
+
 }

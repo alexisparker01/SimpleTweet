@@ -1,6 +1,7 @@
 package com.codepath.apps.restclienttemplate.models;
 
 
+import android.text.format.DateUtils;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -31,12 +32,11 @@ public class Tweet {
         tweet.body = jsonObject.getString("text");
         tweet.createdAt = jsonObject.getString("created_at");
         tweet.user = User.fromJson(jsonObject.getJSONObject("user"));
-        try {
+
+        JSONObject entities = jsonObject.getJSONObject("entities");
+        if(entities.has("media")) {
             tweet.tweetImageUrl = jsonObject.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
             Log.i("tweetImage", tweet.tweetImageUrl);
-        } catch (Exception e) {
-            Log.i("tweetImage", "tweetImage failed");
-            e.printStackTrace();
         }
         return tweet;
 
@@ -50,7 +50,6 @@ public class Tweet {
 
         return tweets;
     }
-
 
     private static final int SECOND_MILLIS = 1000;
     private static final int MINUTE_MILLIS = 60 * SECOND_MILLIS;
@@ -83,13 +82,10 @@ public class Tweet {
                 return diff / DAY_MILLIS + " days ago";
             }
         } catch (ParseException e) {
-            Log.i("Tweet", "getRelativeTimeAgo failed");
+            Log.i("Tweet.Java", "getRelativeTimeAgo failed");
             e.printStackTrace();
         }
 
         return "";
     }
-
-
-
 }
