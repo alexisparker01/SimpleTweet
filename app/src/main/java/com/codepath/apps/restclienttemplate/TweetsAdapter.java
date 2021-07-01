@@ -88,6 +88,7 @@ public class TweetsAdapter extends RecyclerView.Adapter<TweetsAdapter.ViewHolder
             if(tweet.tweetImageUrl == null) {
               ivTweetImage.setVisibility(ImageView.GONE);
             } else {
+                ivTweetImage.setVisibility(ImageView.VISIBLE);
                 Glide.with(context)
                         .load(tweet.tweetImageUrl)
                         .override(Target.SIZE_ORIGINAL)
