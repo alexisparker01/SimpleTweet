@@ -46,7 +46,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/eWvCq13.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='walkthroughSimpleTweet.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIF created with [LiceCap](https://www.macupdate.com/app/mac/49461/licecap).
 
